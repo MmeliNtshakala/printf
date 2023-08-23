@@ -5,7 +5,7 @@
  *
  * Return: 1 if c is printable,0 otherwise.
  */
-int is _printable(char c)
+int is_printable(char c)
 {
 	if (c >= 32 && c< 127)
 		return (1);
@@ -56,9 +56,9 @@ int is_digit(char c)
  */
 long int convert_size_number(long int num, int size)
 {
-	if (size == S_LONG)
+	if (size == SIZE_LONG)
 		return (num);
-	else if (size == S_SHORT)
+	else if (size == SIZE_SHORT)
 		return ((short)num);
 	return((int)num);
 }
@@ -72,9 +72,9 @@ long int convert_size_number(long int num, int size)
  */
 long int conver_size_unsgnd(unsigned long int num, int size)
 {
-	if (size == S_LONG)
+	if (size == SIZE_LONG)
 		return (num);
-	else if (size == S_SHORT)
+	else if (size == SIZE_SHORT)
 		return ((unsigned short)num);
 	return ((unsigned int)num);
 }
