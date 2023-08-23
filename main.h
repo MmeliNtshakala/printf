@@ -8,6 +8,7 @@
 #define UNUSED_PARAM(x) (void)(x)
 #define BUFFER_SIZE 1024
 
+int _printf(const char *format, ...);
 /* Formatting Flags */
 #define FLAG_MINUS  1
 #define FLAG_PLUS   2
