@@ -1,4 +1,4 @@
-i#include "main.h"
+#include "main.h"
 
 /****** PRINT POINTER ******/
 /**
@@ -15,15 +15,15 @@ int print_pointer(va_list types, char buffer[],
                   int flags, int width, int precision, int size)
 {
     char extra_c = 0, padd = ' ';
-    int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
+    int ind = BUFFER_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
     unsigned long num_addrs;
     char map_to[] = "0123456789abcdef";
     void *addrs = va_arg(types, void *);
 
-    UNUSED(width);
-    UNUSED(size);
-    buffer[BUFF_SIZE - 1] = '\0';
-    UNUSED(precision);
+    UNUSED_PARAM(width);
+    UNUSED_PARAM(size);
+    buffer[BUFFER_SIZE - 1] = '\0';
+    UNUSED_PARAM(precision);
     num_addrs = (unsigned long)addrs;
 
     while (num_addrs > 0)
@@ -33,17 +33,17 @@ int print_pointer(va_list types, char buffer[],
         length++;
     }
 
-    if ((flags & F_ZERO) && !(flags & F_MINUS))
+    if ((flags & FLAG_ZERO) && !(flags & FLAG_MINUS))
         padd = '0';
 
-    if (flags & F_PLUS)
+    if (flags & FLAG_PLUS)
         extra_c = '+', length++;
-    else if (flags & F_SPACE)
+    else if (flags & FLAG_SPACE)
         extra_c = ' ', length++;
 
     ind++;
 
-    return (write_pointer(buffer, ind, length, width, flags, padd, extra_c, padd_start));
+    return (print_pointer(char, ind, length, width, flags, padd, extra_c, padd_start));
 }
 
 /********* PRINT NON PRINTABLE *********/
