@@ -17,6 +17,7 @@
 
 void handle_flags(const char *format, va_list args, int idx, char flag);
 void handle_p(va_list args);
+int handle_length_modifiers(const char *format, va_list args, int idx, char length_modifier);
 
 void handle_S(va_list args);
 void flush_buffer(void);

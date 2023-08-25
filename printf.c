@@ -18,12 +18,17 @@ int _printf(const char *format, ...)
     int temp;
     int num_len;
     char num_str[20]; /* Assuming max int digits */
+    int idx = 0;      /* Initialize idx here */
 
     va_start(args, format);
 
+    if (format[idx] == 'l' || format[idx] == 'h') {
+    idx = handle_length_modifiers(format, args, idx, format[idx]);
+    } 
     while (*format)
     {
-        if (*format == '%')
+
+    	    if (*format == '%')
         {
             format++;
             if (*format == 'c')
