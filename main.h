@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdint.h> /* For uintptr_t */
 
+void handle_flags(const char *format, va_list args, int idx, char flag);
 void handle_p(va_list args);
 
 void handle_S(va_list args);
